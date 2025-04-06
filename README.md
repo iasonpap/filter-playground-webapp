@@ -54,3 +54,17 @@ This is a webapp that allows the user to create, play and understand digital fil
 
   - Continuous improvements based on user testing and peer reviews.
   - Planned refinements for polishing UI and interactive features.
+
+# Alex Mylonas React Tips
+
+## Native
+
+javasctipt mesa
+
+## UX
+
+- deconstruct to basic divs
+
+## architecture
+
+- Model-View-Viemodel (MVVM)
