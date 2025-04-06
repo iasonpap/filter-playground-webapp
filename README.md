@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+# Filter Playground WebApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a webapp that allows the user to create, play and understand digital filters.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Feature Roadmap
 
-## Expanding the ESLint configuration
+## Core Functionalities
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Bode Plot Module**
 
-- Configure the top-level `parserOptions` property like this:
+  - Render frequency and phase response using Plotly.
+  - Display static and dynamic bode plots based on filter parameters.
+  - Support interactivity such as zoom, pan, and tooltips.
+- **Interactive Z-Domain Plot**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  - Render the z-domain with an interactive unit circle.
+  - Enable drag-and-drop functionality for poles and zeros.
+  - Dynamically update filter responses as poles/zeros are manipulated.
+- **Laplace-to-Z Transform Module**
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+  - Provide an interactive demonstration of the Laplace-to-Z transformation.
+  - Link changes in the z-domain plot to real-time transformation updates.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Educational Enhancements
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Tooltips and Explanatory Content**
+
+  - Include concise educational content alongside interactive modules.
+  - Offer modal dialogs or inline documentation to explain key concepts.
+- **Real-Time Feedback**
+
+  - Reflect filter design changes immediately in the bode plot.
+  - Visual guides to illustrate relationships between poles, zeros, and filter responses.
+
+## User Experience & Interface
+
+- **Responsive UI**
+
+  - Minimalistic design focused on clarity and ease of use.
+  - Organized layout separating the interactive tools and educational content.
+- **State Management**
+
+  - Efficient handling of user interactions to update plots in real time.
+  - Modular components to facilitate future enhancements and maintenance.
+
+## Testing & Iteration
+
+- **Module Testing**
+
+  - Unit and integration testing for both plot modules.
+  - User feedback loops to refine interactions and educational content.
+- **Feedback Integration**
+
+  - Continuous improvements based on user testing and peer reviews.
+  - Planned refinements for polishing UI and interactive features.
