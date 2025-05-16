@@ -6,7 +6,9 @@ This is a webapp that allows the user to create, play and understand digital fil
 # Feature Roadmap
 
 ## Core Functionalities
-
+- **Command UI Module**
+  - Add Biquad filters into Cascade
+  - 
 - **Bode Plot Module**
 
   - Render frequency and phase response using Plotly.
@@ -17,6 +19,10 @@ This is a webapp that allows the user to create, play and understand digital fil
   - Render the z-domain with an interactive unit circle.
   - Enable drag-and-drop functionality for poles and zeros.
   - Dynamically update filter responses as poles/zeros are manipulated.
+- **Graphic EQ**
+
+
+## Optional Functionalities
 - **Laplace-to-Z Transform Module**
 
   - Provide an interactive demonstration of the Laplace-to-Z transformation.
