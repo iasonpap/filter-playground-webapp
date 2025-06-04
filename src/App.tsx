@@ -1,5 +1,3 @@
-import './App.css'
-
 import TestChartJS from './views/InteractiveCharts/TestChartJS'
 import FilterDesigner from './views/FilterDesigner/FilterDesigner'
 import BodePlot from './views/BodePlots/BodePlot'
