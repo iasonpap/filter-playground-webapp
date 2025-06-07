@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import './FilterDesigner.module.css';
+import { SelectField,  } from '@react-ui-org/react-ui';
+import './FilterDesignUI.module.css';
 
-export default function FilterDesigner() {
-  const [filterType, setFilterType] = useState<string>('lowpass');
+export default function FilterDesignUI() {
+  const [filterType, setFilterType] = useState<string>('--');
   const [sampleFrequency, setSampleFrequency] = useState<number>(48000);
 
   return (
-    <form className='filter-designer'>
+    <form className='filter-design-ui'>
         <label>
             Fs:
             <input 

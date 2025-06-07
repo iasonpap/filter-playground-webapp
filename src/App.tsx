@@ -1,5 +1,5 @@
 import TestChartJS from './views/InteractiveCharts/TestChartJS'
-import FilterDesigner from './views/FilterDesigner/FilterDesigner'
+import FilterDesignUI from './views/FilterDesigner/FilterDesignUI'
 import BodePlot from './views/BodePlots/BodePlot'
 
 import { BodePlotProps, TraceData } from './types/plotTypes'
@@ -24,11 +24,19 @@ const dummyProps: BodePlotProps = {
 
 function App() {
   return (
-    <>
-      <FilterDesigner />
-      <BodePlot {...dummyProps} />
-      <TestChartJS />
-    </>
+    
+    <div className='main-app-layout'>
+      <div className="app-col-1">
+        <div className="app-row-1">
+            <FilterDesignUI />
+            <TestChartJS />
+        </div>
+        <BodePlot {...dummyProps} />
+      </div>
+      <div className="app-col-2">
+        <h1>3D Transfer Function</h1>
+      </div>
+    </div>
   )
 }
 

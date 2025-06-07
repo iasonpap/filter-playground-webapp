@@ -36,14 +36,17 @@ export default function BodePlot({ traces, title, xLabel, yLabel }: BodePlotProp
     
     
     return (
-        <div className={styles.plotContainer}>
-            <Plot 
-                data={plotData}
-                layout={layout}
-                style={{ width: '100%', height: '100%' }}
-                className={styles.plot}
-                config={{ responsive: true }}
-            />
+        <div className='app-row-2'>
+            <div className={styles.plotContainer}>
+                <Plot 
+                    data={plotData}
+                    layout={layout}
+                    style={{ width: '100%', height: '100%' }}
+                    className={styles.plot}
+                    config={{ responsive: true }}
+                />
+            </div>
         </div>
+        
     );
 }

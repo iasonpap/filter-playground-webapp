@@ -1,4 +1,5 @@
-.filter-designer {
+/* Styles for FilterDesignUI component */
+.filter-design-ui {
     display: flex;
     flex-direction: row;
     align-items: center;   
