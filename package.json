@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@types/mathjs": "^9.4.1",
     "@types/react-plotly.js": "^2.6.3",
     "chart.js": "^4.4.8",

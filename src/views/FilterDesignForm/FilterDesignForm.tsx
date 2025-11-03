@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { SelectField,  } from '@react-ui-org/react-ui';
 import './FilterDesignUI.module.css';
 
-export default function FilterDesignUI() {
+export default function FilterDesignForm() {
   const [filterType, setFilterType] = useState<string>('--');
   const [sampleFrequency, setSampleFrequency] = useState<number>(48000);
 

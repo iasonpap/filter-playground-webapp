@@ -1,8 +1,10 @@
-import TestChartJS from './views/InteractiveCharts/TestChartJS'
-import FilterDesignUI from './views/FilterDesigner/FilterDesignUI'
+import Zplane from './views/Zplane/Zplane'
+import FilterDesignUI from './views/FilterDesignForm/FilterDesignUI'
 import BodePlot from './views/BodePlots/BodePlot'
+import Box from '@mui/material/Box'
 
 import { BodePlotProps, TraceData } from './types/plotTypes'
+import Typography from '@mui/material/Typography'
 
 const dummyProps: BodePlotProps = {
   traces: [
@@ -22,22 +24,18 @@ const dummyProps: BodePlotProps = {
   yLabel: 'Magnitude (dB)'
 }
 
-function App() {
+export default function App() {
   return (
+    <Box id="app-main-layout">
+        <Box id="app-row-1">
+            <Box id="app-col-1">
+                <FilterDesignUI />
+            </Box>
+        </Box>
+        <Box id="app-row-2">
+            <BodePlot {...dummyProps} />
+        </Box>
+    </Box>
     
-    <div className='main-app-layout'>
-      <div className="app-col-1">
-        <div className="app-row-1">
-            <FilterDesignUI />
-            <TestChartJS />
-        </div>
-        <BodePlot {...dummyProps} />
-      </div>
-      <div className="app-col-2">
-        <h1>3D Transfer Function</h1>
-      </div>
-    </div>
-  )
+  );
 }
-
-export default App
