@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { FilterChain, BiquadSection } from './models/FilterChain';
 import BiquadList from './components/BiquadList';
-import ZPlane from './components/ZPlane';
+import ZPlaneChart from './components/ZPlaneChart';
 import BodePlot from './components/BodePlot';
 import { PoleZero, generateId } from './utils/dsp';
 
@@ -97,8 +97,9 @@ function App() {
 
         {/* Middle Column: Z-Plane */}
         <div className="middle-panel">
-          <ZPlane
+          <ZPlaneChart
             biquads={biquads}
+            selectedBiquadId={selectedBiquadId}
             onPoleZeroMove={handlePoleZeroMove}
             onPoleZeroAdd={handlePoleZeroAdd}
           />
