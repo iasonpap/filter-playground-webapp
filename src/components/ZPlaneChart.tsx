@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import { Scatter } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -8,13 +8,14 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
-  Plugin,
 } from 'chart.js';
-import dragDataPlugin from 'chartjs-plugin-dragdata';
 import { BiquadSection } from '../models/FilterChain';
 
-// Register Chart.js components and plugins
-ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend, dragDataPlugin as Plugin);
+// Import and register the dragdata plugin
+import 'chartjs-plugin-dragdata';
+
+// Register Chart.js components
+ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 
 interface ZPlaneChartProps {
   biquads: BiquadSection[];
@@ -112,7 +113,7 @@ export default function ZPlaneChart({
           // Store metadata for drag callbacks
           biquadId: biquad.id,
           poleZeroIds: biquad.zeros.map((z) => z.id),
-          type: 'zero',
+          poleZeroType: 'zero',
         });
       }
 
@@ -133,7 +134,7 @@ export default function ZPlaneChart({
           // Store metadata for drag callbacks
           biquadId: biquad.id,
           poleZeroIds: biquad.poles.map((p) => p.id),
-          type: 'pole',
+          poleZeroType: 'pole',
         });
       }
     });
@@ -169,12 +170,12 @@ export default function ZPlaneChart({
         showTooltip: false,
         dragX: true,
         dragY: true,
-        onDragStart: (e: any, datasetIndex: number, index: number, value: any) => {
+        onDragStart: (_e: any, datasetIndex: number, _index: number, _value: any) => {
           const dataset = datasets[datasetIndex] as any;
           // Only allow dragging if dragData is true
           return dataset.dragData === true;
         },
-        onDrag: (e: any, datasetIndex: number, index: number, value: any) => {
+        onDrag: (_e: any, datasetIndex: number, index: number, value: any) => {
           const dataset = datasets[datasetIndex] as any;
           if (!dataset.dragData) return false;
 
@@ -186,7 +187,7 @@ export default function ZPlaneChart({
           if (Math.abs(x) < 0.03) x = 0;
 
           // For poles, constrain to inside unit circle
-          if (dataset.type === 'pole') {
+          if (dataset.poleZeroType === 'pole') {
             const magnitude = Math.sqrt(x * x + y * y);
             if (magnitude > 0.99) {
               const angle = Math.atan2(y, x);
@@ -214,7 +215,7 @@ export default function ZPlaneChart({
 
           return true;
         },
-        onDragEnd: (e: any, datasetIndex: number, index: number, value: any) => {
+        onDragEnd: (_e: any, datasetIndex: number, index: number, value: any) => {
           const dataset = datasets[datasetIndex] as any;
           if (!dataset.dragData) return;
 
