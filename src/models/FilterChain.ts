@@ -28,16 +28,30 @@ export class FilterChain {
     const id = generateId();
     const colorIndex = this.biquads.length % this.colors.length;
     
+    // Create default poles and zeros for a basic filter
+    const defaultPoles: PoleZero[] = [
+      { id: generateId(), real: 0.5, imag: 0.5, type: 'pole' },
+      { id: generateId(), real: 0.5, imag: -0.5, type: 'pole' },
+    ];
+    
+    const defaultZeros: PoleZero[] = [
+      { id: generateId(), real: -0.5, imag: 0.5, type: 'zero' },
+      { id: generateId(), real: -0.5, imag: -0.5, type: 'zero' },
+    ];
+    
     const newBiquad: BiquadSection = {
       id,
       name: name || `Biquad ${this.biquads.length + 1}`,
       enabled: true,
-      poles: [],
-      zeros: [],
+      poles: defaultPoles,
+      zeros: defaultZeros,
       coefficients: { b0: 1, b1: 0, b2: 0, a1: 0, a2: 0 },
       color: this.colors[colorIndex],
     };
 
+    // Calculate initial coefficients
+    this.recalculateCoefficients(id);
+    
     this.biquads.push(newBiquad);
     return newBiquad;
   }
